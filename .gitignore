@@ -1,0 +1,12 @@
+.idea/
+assets/
+bin/
+files/
+libs/
+gen/
+out/
+proguard_logs/
+*.apk
+*.iml
+local.properties
+proguard-project.txt

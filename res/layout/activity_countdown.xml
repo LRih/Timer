@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layMain">
+
+    <View
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/shape_run"
+        android:id="@+id/viewStatus"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/pause_margin"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countdown_timer" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/double_zero"
+                android:id="@+id/txtMin"
+                android:textSize="@dimen/time"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="@dimen/colon"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/double_zero"
+                android:id="@+id/txtSec"
+                android:singleLine="true"
+                android:textSize="@dimen/time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/double_zero"
+                android:id="@+id/txtMS"
+                android:textSize="@dimen/time_ms"
+                android:singleLine="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:text="@string/reset"
+        android:id="@+id/lblReset"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:visibility="invisible" />
+
+</LinearLayout>
+
