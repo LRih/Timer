@@ -3,13 +3,11 @@ package ric.ov.Timer.Activities;
 import android.app.Activity;
 import ric.ov.OneVisual.Utils.PreferencesUtils;
 
-//#============================================================================
-//# * BaseActivity
-//#============================================================================
 public abstract class BaseActivity extends Activity
 {
     //========================================================================= CONSTANTS
     protected static final String SAVENAME_COUNTDOWN = "countdown";
+
     //========================================================================= FUNCTIONS
     protected final int GetCountdown()
     {

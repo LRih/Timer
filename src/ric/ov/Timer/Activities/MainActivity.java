@@ -18,9 +18,6 @@ import ric.ov.Timer.Timer;
 // added up/down buttons for minute step on countdown screen
 // added rate button to about dialog
 
-//#============================================================================
-//# * MainActivity
-//#============================================================================
 public final class MainActivity extends BaseActivity
 {
     //========================================================================= VARIABLES
@@ -48,7 +45,7 @@ public final class MainActivity extends BaseActivity
         _handlerUpdate = new Handler();
         handlerUpdate_run.run();
     }
-    private final void InitializeViews()
+    private void InitializeViews()
     {
         _layMain = (LinearLayout)findViewById(R.id.layMain);
         _viewStatus = (View)findViewById(R.id.viewStatus);
@@ -59,14 +56,14 @@ public final class MainActivity extends BaseActivity
         _txtCompare = (TextView)findViewById(R.id.txtCompare);
         _lblReset = (TextView)findViewById(R.id.lblReset);
     }
-    private final void InitializeEvents()
+    private void InitializeEvents()
     {
         _layMain.setOnClickListener(layMain_onClick);
         _layMain.setOnLongClickListener(layMain_onLongClick);
     }
 
     //========================================================================= FUNCTIONS
-    private final void Toggle()
+    private void Toggle()
     {
         _timerCurrent.Toggle();
         _viewStatus.setVisibility(View.VISIBLE);
@@ -81,7 +78,7 @@ public final class MainActivity extends BaseActivity
             _lblReset.setVisibility(View.INVISIBLE);
         }
     }
-    private final void Reset()
+    private void Reset()
     {
         // save last time
         _timerLast = new Timer(_timerCurrent.GetRunTime());
@@ -91,7 +88,7 @@ public final class MainActivity extends BaseActivity
         _viewStatus.setVisibility(View.INVISIBLE);
         _lblReset.setVisibility(View.INVISIBLE);
     }
-    private final void UpdateUI()
+    private void UpdateUI()
     {
         if (_timerCurrent.GetRunTime() == 0 || _timerLast.GetRunTime() == 0) _txtCompare.setVisibility(View.INVISIBLE);
         else
@@ -116,7 +113,7 @@ public final class MainActivity extends BaseActivity
         _txtMS.setText(_timerCurrent.GetMS());
     }
 
-    private final void ShowAboutDialog()
+    private void ShowAboutDialog()
     {
         AboutDialog.Show(this, R.drawable.icon, getString(R.string.app_name), "", 2013, false, null);
     }
@@ -151,7 +148,7 @@ public final class MainActivity extends BaseActivity
 
     private final Runnable handlerUpdate_run = new Runnable()
     {
-        public void run()
+        public final void run()
         {
             UpdateUI();
             _handlerUpdate.postDelayed(this, 10); // loop
@@ -159,14 +156,14 @@ public final class MainActivity extends BaseActivity
     };
     private final View.OnClickListener layMain_onClick = new View.OnClickListener()
     {
-        public void onClick(View view)
+        public final void onClick(View view)
         {
             Toggle();
         }
     };
     private final View.OnLongClickListener layMain_onLongClick = new View.OnLongClickListener()
     {
-        public boolean onLongClick(View view)
+        public final boolean onLongClick(View view)
         {
             if (_timerCurrent.IsPaused())
             {

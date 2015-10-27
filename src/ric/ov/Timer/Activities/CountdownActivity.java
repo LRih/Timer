@@ -1,13 +1,11 @@
 package ric.ov.Timer.Activities;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,9 +15,6 @@ import ric.ov.Timer.CountdownTimer;
 import ric.ov.Timer.R;
 import ric.ov.Timer.SecondSelectDialog;
 
-//#============================================================================
-//# * CountdownActivity
-//#============================================================================
 public final class CountdownActivity extends BaseActivity
 {
     //========================================================================= VARIABLES
@@ -29,10 +24,11 @@ public final class CountdownActivity extends BaseActivity
     private TextView _txtSec;
     private TextView _txtMS;
     private TextView _lblReset;
-    //-------------------------------------------------------------------------
+
     private MediaPlayer _player = new MediaPlayer();
     private Handler _handlerUpdate;
     private CountdownTimer _timer;
+
     //========================================================================= INITIALIZE
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -46,7 +42,7 @@ public final class CountdownActivity extends BaseActivity
         _handlerUpdate = new Handler();
         handlerUpdate_run.run();
     }
-    private final void InitializeViews()
+    private void InitializeViews()
     {
         _layMain = (LinearLayout)findViewById(R.id.layMain);
         _viewStatus = (View)findViewById(R.id.viewStatus);
@@ -55,13 +51,14 @@ public final class CountdownActivity extends BaseActivity
         _txtMS = (TextView)findViewById(R.id.txtMS);
         _lblReset = (TextView)findViewById(R.id.lblReset);
     }
-    private final void InitializeEvents()
+    private void InitializeEvents()
     {
         _layMain.setOnClickListener(layMain_onClick);
         _layMain.setOnLongClickListener(layMain_onLongClick);
     }
+
     //========================================================================= FUNCTIONS
-    private final void Toggle()
+    private void Toggle()
     {
         _timer.Toggle();
         _viewStatus.setVisibility(View.VISIBLE);
@@ -77,19 +74,19 @@ public final class CountdownActivity extends BaseActivity
             _lblReset.setVisibility(View.INVISIBLE);
         }
     }
-    private final void Reset()
+    private void Reset()
     {
         _timer.Reset();
         _viewStatus.setVisibility(View.INVISIBLE);
         _lblReset.setVisibility(View.INVISIBLE);
     }
-    private final void UpdateUI()
+    private void UpdateUI()
     {
         _txtMin.setText(_timer.GetMin());
         _txtSec.setText(_timer.GetSec());
         _txtMS.setText(_timer.GetMS());
     }
-    private final void UpdateAlarm()
+    private void UpdateAlarm()
     {
         if (_timer.IsAlarmTime())
         {
@@ -108,8 +105,8 @@ public final class CountdownActivity extends BaseActivity
             catch (Exception ex) {}
         }
     }
-    //-------------------------------------------------------------------------
-    private final void ShowTimeSelectDialog()
+
+    private void ShowTimeSelectDialog()
     {
         final SecondSelectDialog dialog = new SecondSelectDialog(this, _timer.StartSecond());
         dialog.SetButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener()
@@ -128,6 +125,7 @@ public final class CountdownActivity extends BaseActivity
         });
         dialog.Show();
     }
+
     //==================================================================== EVENTS
     public final boolean onCreateOptionsMenu(Menu menu)
     {
@@ -145,17 +143,17 @@ public final class CountdownActivity extends BaseActivity
                 return super.onOptionsItemSelected(item);
         }
     }
-    //-------------------------------------------------------------------------
+
     protected final void onPause()
     {
         super.onPause();
         if (!_timer.IsPaused()) Toggle();
         _player.release();
     }
-    //-------------------------------------------------------------------------
+
     private final Runnable handlerUpdate_run = new Runnable()
     {
-        public void run()
+        public final void run()
         {
             UpdateUI();
             UpdateAlarm();
@@ -164,14 +162,14 @@ public final class CountdownActivity extends BaseActivity
     };
     private final View.OnClickListener layMain_onClick = new View.OnClickListener()
     {
-        public void onClick(View view)
+        public final void onClick(View view)
         {
             Toggle();
         }
     };
     private final View.OnLongClickListener layMain_onLongClick = new View.OnLongClickListener()
     {
-        public boolean onLongClick(View view)
+        public final boolean onLongClick(View view)
         {
             if (_timer.IsPaused())
             {

@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//#============================================================================
-//# * SecondSelectDialog
-//#============================================================================
 public final class SecondSelectDialog
 {
     //========================================================================= VARIABLES
@@ -84,33 +81,33 @@ public final class SecondSelectDialog
 
     private final View.OnTouchListener btnMinuteUp_onTouch = new View.OnTouchListener()
     {
-        public boolean onTouch(View view, MotionEvent motionEvent)
+        public final boolean onTouch(View view, MotionEvent motionEvent)
         {
             return ButtonOnTouch(60, motionEvent);
         }
     };
     private final View.OnTouchListener btnMinuteDown_onTouch = new View.OnTouchListener()
     {
-        public boolean onTouch(View view, MotionEvent motionEvent)
+        public final boolean onTouch(View view, MotionEvent motionEvent)
         {
             return ButtonOnTouch(-60, motionEvent);
         }
     };
     private final View.OnTouchListener btnUp_onTouch = new View.OnTouchListener()
     {
-        public boolean onTouch(View view, MotionEvent motionEvent)
+        public final boolean onTouch(View view, MotionEvent motionEvent)
         {
             return ButtonOnTouch(1, motionEvent);
         }
     };
     private final View.OnTouchListener btnDown_onTouch = new View.OnTouchListener()
     {
-        public boolean onTouch(View view, MotionEvent motionEvent)
+        public final boolean onTouch(View view, MotionEvent motionEvent)
         {
             return ButtonOnTouch(-1, motionEvent);
         }
     };
-    private final boolean ButtonOnTouch(int direction, MotionEvent motionEvent)
+    private boolean ButtonOnTouch(int direction, MotionEvent motionEvent)
     {
         switch (motionEvent.getAction())
         {
