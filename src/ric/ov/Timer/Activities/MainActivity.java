@@ -114,7 +114,7 @@ public final class MainActivity extends BaseActivity
 
     private void ShowAboutDialog()
     {
-        AboutDialog.Show(this, R.drawable.icon, getString(R.string.app_name), "", 2013, false, null);
+        AboutDialog.Show(this, R.drawable.icon, getString(R.string.app_name), "", 2013, null);
     }
 
     //========================================================================= EVENTS
