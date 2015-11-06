@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import ric.ov.OneVisual.Controls.AboutDialog;
 import ric.ov.Timer.R;
 import ric.ov.Timer.Timer;
 

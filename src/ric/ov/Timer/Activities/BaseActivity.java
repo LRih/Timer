@@ -1,20 +1,25 @@
 package ric.ov.Timer.Activities;
 
 import android.app.Activity;
-import ric.ov.OneVisual.Utils.PreferencesUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 public abstract class BaseActivity extends Activity
 {
     //========================================================================= CONSTANTS
-    protected static final String SAVENAME_COUNTDOWN = "countdown";
+    private static final String SAVENAME_PREFERENCES = "settings";
+    private static final String SAVENAME_COUNTDOWN = "saveCountdown";
 
     //========================================================================= FUNCTIONS
     protected final int GetCountdown()
     {
-        return PreferencesUtils.GetSharedPreferences(this).getInt(SAVENAME_COUNTDOWN, 10);
+        SharedPreferences prefs = getSharedPreferences(SAVENAME_PREFERENCES, Context.MODE_PRIVATE);
+        return prefs.getInt(SAVENAME_COUNTDOWN, 10);
     }
     protected final void SaveCountdown(int value)
     {
-        PreferencesUtils.SaveSharedPreference(this, SAVENAME_COUNTDOWN, value);
+        SharedPreferences.Editor editor = getSharedPreferences(SAVENAME_PREFERENCES, Context.MODE_PRIVATE).edit();
+        editor.putInt(SAVENAME_COUNTDOWN, value);
+        editor.commit();
     }
 }

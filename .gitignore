@@ -6,6 +6,7 @@ libs/
 gen/
 out/
 proguard_logs/
+src/ric/ov/Timer/Activities/AboutDialog.java
 *.apk
 *.iml
 local.properties
