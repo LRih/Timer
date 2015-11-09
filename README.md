@@ -4,4 +4,5 @@ A basic Android timer.
 - Counts up and down
 - Shows difference between current time and last time
 
-![Image 1](https://github.com/LRih/Images/blob/master/Timer-1.png) ![Image 2](https://github.com/LRih/Images/blob/master/Timer-2.png)
+<img src="https://github.com/LRih/Images/blob/master/Timer-1.png" alt="Image 1" width="186px"/>
+<img src="https://github.com/LRih/Images/blob/master/Timer-2.png" alt="Image 2" width="186px"/>
