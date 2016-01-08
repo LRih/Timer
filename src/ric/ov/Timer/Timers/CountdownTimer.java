@@ -1,4 +1,4 @@
-package ric.ov.Timer;
+package ric.ov.Timer.Timers;
 
 public final class CountdownTimer extends Timer
 {
@@ -14,27 +14,28 @@ public final class CountdownTimer extends Timer
     }
 
     //========================================================================= FUNCTIONS
-    public final void Start()
+    public final void start()
     {
-        super.Start();
+        super.start();
         _waitingForAlarm = true;
     }
-    public final void TurnOffAlarm()
+    public final void turnOffAlarm()
     {
         _waitingForAlarm = false;
     }
 
     //========================================================================= PROPERTIES
-    protected final long GetDisplayTime()
+    protected final long displayTime()
     {
-        return _startMS - Math.min(super.GetRunTime(), _startMS);
+        return _startMS - Math.min(super.runTime(), _startMS);
     }
-    public final int StartSecond()
+    public final int startSecond()
     {
         return (int)(_startMS / 1000);
     }
-    public final boolean IsAlarmTime()
+
+    public final boolean isAlarmTime()
     {
-        return (_waitingForAlarm && GetDisplayTime() == 0);
+        return (_waitingForAlarm && displayTime() == 0);
     }
 }

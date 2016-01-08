@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:gravity="center">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMins"
+        android:inputType="number"
+        android:width="@dimen/text_width"
+        android:gravity="center"
+        android:textSize="@dimen/text_dialog"
+        android:maxLength="3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minutes"
+        android:textSize="@dimen/text_dialog"
+        android:layout_marginLeft="@dimen/margin" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSecs"
+        android:layout_marginLeft="@dimen/margin_large"
+        android:inputType="number"
+        android:width="@dimen/text_width"
+        android:gravity="center"
+        android:textSize="@dimen/text_dialog"
+        android:maxLength="2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seconds"
+        android:textSize="@dimen/text_dialog"
+        android:layout_marginLeft="@dimen/margin" />
+
+</LinearLayout>

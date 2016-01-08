@@ -11,7 +11,7 @@
         android:background="@drawable/shape_run"
         android:id="@+id/viewStatus"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/pause_margin"
+        android:layout_margin="@dimen/margin"
         android:visibility="invisible" />
 
     <LinearLayout
@@ -24,10 +24,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/countdown_timer" />
+            android:text="@string/default_time"
+            android:id="@+id/txtCompare"
+            android:singleLine="true"
+            android:textSize="@dimen/time_compare"
+            android:visibility="invisible" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
@@ -63,6 +66,15 @@
                 android:textSize="@dimen/time_ms"
                 android:singleLine="true" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_time"
+            android:id="@+id/txtLast"
+            android:singleLine="true"
+            android:textSize="@dimen/time_last"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

@@ -10,13 +10,15 @@ public abstract class BaseActivity extends Activity
     private static final String SAVENAME_PREFERENCES = "settings";
     private static final String SAVENAME_COUNTDOWN = "saveCountdown";
 
+    protected static final int REFRESH_RATE = 37;
+
     //========================================================================= FUNCTIONS
-    protected final int GetCountdown()
+    protected final int loadCountdown()
     {
         SharedPreferences prefs = getSharedPreferences(SAVENAME_PREFERENCES, Context.MODE_PRIVATE);
         return prefs.getInt(SAVENAME_COUNTDOWN, 10);
     }
-    protected final void SaveCountdown(int value)
+    protected final void saveCountdown(int value)
     {
         SharedPreferences.Editor editor = getSharedPreferences(SAVENAME_PREFERENCES, Context.MODE_PRIVATE).edit();
         editor.putInt(SAVENAME_COUNTDOWN, value);

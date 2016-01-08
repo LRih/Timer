@@ -1,11 +1,10 @@
-package ric.ov.Timer;
+package ric.ov.Timer.Timers;
 
 public class Timer
 {
     //========================================================================= CONSTANTS
     private static final int MAX_TIME = 5999999;
 
-    //========================================================================= VARIABLES
     private boolean _isPaused = true;
     private long _countedTime;
     private long _startTime;
@@ -21,69 +20,72 @@ public class Timer
     }
 
     //========================================================================= FUNCTIONS
-    public void Start()
+    public void start()
     {
         _startTime = System.currentTimeMillis();
         _isPaused = false;
     }
-    public final void Pause()
+    public final void pause()
     {
-        _countedTime = GetRunTime();
+        _countedTime = runTime();
         _isPaused = true;
     }
-    public final void Toggle()
+    public final void toggle()
     {
-        if (_isPaused) Start();
-        else Pause();
+        if (_isPaused) start();
+        else pause();
     }
-    public final void Reset()
+    public final void reset()
     {
         _countedTime = 0;
         _isPaused = true;
     }
 
-    public final Timer Subtract(Timer timer)
+    public final Timer subtract(Timer timer)
     {
-        return new Timer((GetRunTime() / 10 - timer.GetRunTime() / 10) * 10);
+        return new Timer((runTime() / 10 - timer.runTime() / 10) * 10);
     }
 
     //========================================================================= PROPERTIES
-    public final String GetTime()
+    public final String time()
     {
-        long runTime = Math.abs(GetDisplayTime()) / 10;
+        long runTime = Math.abs(displayTime()) / 10;
         int minutes = (int)(runTime / 60 / 100);
         int seconds = (int)(runTime / 100) % 60;
         int ms = (int)(runTime % 100);
         return String.format("%02d:%02d.%02d", minutes, seconds, ms);
     }
-    public final String GetMin()
+    public final String minutes()
     {
-        long runTime = Math.abs(GetDisplayTime()) / 10;
+        long runTime = Math.abs(displayTime()) / 10;
         return String.format("%02d", runTime / 60 / 100);
     }
-    public final String GetSec()
+    public final String seconds()
     {
-        long runTime = Math.abs(GetDisplayTime()) / 10;
+        long runTime = Math.abs(displayTime()) / 10;
         return String.format("%02d", (runTime / 100) % 60);
     }
-    public final String GetMS()
+    public final String milliseconds()
     {
-        long runTime = Math.abs(GetDisplayTime()) / 10;
+        long runTime = Math.abs(displayTime()) / 10;
         return String.format("%02d", runTime % 100);
     }
-    public final long GetRunTime()
+
+    public final long runTime()
     {
-        long runTime;
-        if (_isPaused) runTime = _countedTime;
-        else runTime = _countedTime + System.currentTimeMillis() - _startTime;
+        long runTime = _countedTime;
+
+        if (!_isPaused)
+            runTime += System.currentTimeMillis() - _startTime;
+
         return Math.min(runTime, MAX_TIME);
     }
-    protected long GetDisplayTime()
+    protected long displayTime()
     {
-        return GetRunTime();
+        return runTime();
     }
 
-    public final boolean IsPaused()
+    public final boolean isPaused()
     {
         return _isPaused;
     }

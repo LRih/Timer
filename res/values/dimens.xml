@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="pause_margin">4dp</dimen>
+    <dimen name="margin">4dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
+
     <dimen name="time">72dp</dimen>
     <dimen name="colon">48dp</dimen>
     <dimen name="time_ms">36dp</dimen>
+
     <dimen name="time_last">24dp</dimen>
     <dimen name="time_compare">24dp</dimen>
 
-    <dimen name="dialog_value">24dp</dimen>
+    <dimen name="text_dialog">28dp</dimen>
+    <dimen name="text_width">70dp</dimen>
 </resources>
